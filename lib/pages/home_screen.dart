@@ -4,6 +4,7 @@ import 'package:walleet/widgets/outlind_button.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
 import 'package:walleet/model/transaction_data.dart';
+import 'transfer_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -107,7 +108,9 @@ class HomeScreen extends StatelessWidget {
                 OutlindButton(
                   text: 'Transfer',
                   icon: Iconsax.convert,
-                  onpressed: () {},
+                  onpressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TransferPage()));
+                  },
                 ),
                 OutlindButton(
                   text: 'Payment',

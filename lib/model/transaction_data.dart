@@ -11,6 +11,22 @@ class TransactionData extends ChangeNotifier{
     {'icon': 'images/teller.jpg', 'title': 'Quick teller', 'subTitle': 'Tax', 'amount': 17},
   ];
 
+  final List<String> _banks = [
+    'UBA',
+    'GTB',
+    'ACCESS',
+    'ZENITH',
+    'KUDA',
+    'PAYPAL',
+    'WEMA',
+    'FBN',
+    'ECO-BANK',
+    'FIDELITY',
+    'DIAMOND',
+  ];
+
+  get banks => _banks;
+
   get transData => _transData;
 
 }
