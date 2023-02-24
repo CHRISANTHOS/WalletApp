@@ -75,60 +75,55 @@ class _TransferPageState extends State<TransferPage> {
 
     Widget _otherAcc(){
       return Expanded(
-        child: Column(
-          children: [
-            SingleChildScrollView(
-              child: Container(
-                padding: EdgeInsets.all(8),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text('Enter beneficiary account', style: GoogleFonts.poppins(fontSize: 15)),
-                    SizedBox(height: 5,),
-                    TextField(
-                      decoration: kTextFieldInputDecoration.copyWith(
-                          labelText: 'e.g: 1234567890'
-                      ),
-                    ),
-                    SizedBox(
-                      height: 20,
-                    ),
-                    Text('Choose bank', style: GoogleFonts.poppins(fontSize: 15)),
-                    DecoratedBox(
-                        decoration: BoxDecoration(
-                          border: Border.all(color: Colors.black26),
-                          borderRadius: BorderRadius.circular(32),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 20, right: 20),
-                          child: androidDropdown(),
-                        )),
-                    SizedBox(
-                      height: 15,
-                    ),
-                    Text('Enter Description', style: GoogleFonts.poppins(fontSize: 15)),
-                    SizedBox(height: 5,),
-                    TextField(
-                      maxLines: null,
-                      keyboardType: TextInputType.multiline,
-                      decoration: kTextFieldInputDecoration.copyWith(
-                          labelText: 'e.g: Food Budget'
-                      ),
-                    ),
-                    SizedBox(height: 10,),
-                    Text('Enter Amount', style: GoogleFonts.poppins(fontSize: 15)),
-                    SizedBox(height: 5,),
-                    TextField(
-                      decoration: kTextFieldInputDecoration.copyWith(
-                          labelText: 'e.g: 2000'
-                      ),
-                    ),
-                  ],
+        child: SingleChildScrollView(
+          child: Container(
+            padding: EdgeInsets.all(8),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Enter beneficiary account', style: GoogleFonts.poppins(fontSize: 15)),
+                SizedBox(height: 5,),
+                TextField(
+                  decoration: kTextFieldInputDecoration.copyWith(
+                      labelText: 'e.g: 1234567890'
+                  ),
                 ),
-              ),
+                SizedBox(
+                  height: 20,
+                ),
+                Text('Choose bank', style: GoogleFonts.poppins(fontSize: 15)),
+                DecoratedBox(
+                    decoration: BoxDecoration(
+                      border: Border.all(color: Colors.black26),
+                      borderRadius: BorderRadius.circular(32),
+                    ),
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 20, right: 20),
+                      child: androidDropdown(),
+                    )),
+                SizedBox(
+                  height: 15,
+                ),
+                Text('Enter Description', style: GoogleFonts.poppins(fontSize: 15)),
+                SizedBox(height: 5,),
+                TextField(
+                  maxLines: null,
+                  keyboardType: TextInputType.multiline,
+                  decoration: kTextFieldInputDecoration.copyWith(
+                      labelText: 'e.g: Food Budget'
+                  ),
+                ),
+                SizedBox(height: 10,),
+                Text('Enter Amount', style: GoogleFonts.poppins(fontSize: 15)),
+                SizedBox(height: 5,),
+                TextField(
+                  decoration: kTextFieldInputDecoration.copyWith(
+                      labelText: 'e.g: 2000'
+                  ),
+                ),
+              ],
             ),
-            Align(child: RoundedButton(color: Colors.black, text: 'Send money', onPressed: (){}))
-          ],
+          ),
         ),
       );
     }
@@ -141,7 +136,7 @@ class _TransferPageState extends State<TransferPage> {
           return _otherAcc();
         default:
           return Align(child: Text('Select Account', style: GoogleFonts.poppins(
-              fontSize: 20, fontWeight: FontWeight.bold)));
+              fontSize: 15, fontWeight: FontWeight.bold)));
       }
     }
 
@@ -174,6 +169,7 @@ class _TransferPageState extends State<TransferPage> {
           ),
           SizedBox(height: 5,),
           transferBody(),
+          moneyTo == MoneyTo.otherAcc? Align(child: RoundedButton(color: Colors.black, text: 'Send money', onPressed: (){})) : Container()
         ],
       ),
     );
