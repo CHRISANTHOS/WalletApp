@@ -3,8 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:walleet/widgets/outlind_button.dart';
 import 'package:iconsax/iconsax.dart';
 import 'package:provider/provider.dart';
+import 'payment_page.dart';
 import 'package:walleet/model/transaction_data.dart';
 import 'transfer_page.dart';
+import 'topUp_page.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -115,7 +117,9 @@ class HomeScreen extends StatelessWidget {
                 OutlindButton(
                   text: 'Payment',
                   icon: Iconsax.export,
-                  onpressed: () {},
+                  onpressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => PaymentPage()));
+                  },
                 ),
                 OutlindButton(
                   text: 'Payout',
@@ -125,7 +129,9 @@ class HomeScreen extends StatelessWidget {
                 OutlindButton(
                   text: 'Top up',
                   icon: Iconsax.add,
-                  onpressed: () {},
+                  onpressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => TopUpPage()));
+                  },
                 )
               ],
             ),

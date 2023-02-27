@@ -53,8 +53,8 @@ class _TransferPageState extends State<TransferPage> {
       List<DropdownMenuItem<String>> dropdownItems = [];
       for (String bank in vm.banks) {
         var newItem = DropdownMenuItem(
-          child: Text(bank),
           value: bank,
+          child: Text(bank),
         );
         dropdownItems.add(newItem);
       }
@@ -77,18 +77,18 @@ class _TransferPageState extends State<TransferPage> {
       return Expanded(
         child: SingleChildScrollView(
           child: Container(
-            padding: EdgeInsets.all(8),
+            padding: const EdgeInsets.all(8),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text('Enter beneficiary account', style: GoogleFonts.poppins(fontSize: 15)),
-                SizedBox(height: 5,),
+                const SizedBox(height: 5,),
                 TextField(
                   decoration: kTextFieldInputDecoration.copyWith(
                       labelText: 'e.g: 1234567890'
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Text('Choose bank', style: GoogleFonts.poppins(fontSize: 15)),
@@ -101,11 +101,11 @@ class _TransferPageState extends State<TransferPage> {
                       padding: const EdgeInsets.only(left: 20, right: 20),
                       child: androidDropdown(),
                     )),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Text('Enter Description', style: GoogleFonts.poppins(fontSize: 15)),
-                SizedBox(height: 5,),
+                const SizedBox(height: 5,),
                 TextField(
                   maxLines: null,
                   keyboardType: TextInputType.multiline,
@@ -113,9 +113,9 @@ class _TransferPageState extends State<TransferPage> {
                       labelText: 'e.g: Food Budget'
                   ),
                 ),
-                SizedBox(height: 10,),
+                const SizedBox(height: 10,),
                 Text('Enter Amount', style: GoogleFonts.poppins(fontSize: 15)),
-                SizedBox(height: 5,),
+                const SizedBox(height: 5,),
                 TextField(
                   decoration: kTextFieldInputDecoration.copyWith(
                       labelText: 'e.g: 2000'
@@ -143,7 +143,7 @@ class _TransferPageState extends State<TransferPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: Colors.black),
+        iconTheme: const IconThemeData(color: Colors.black),
         elevation: 0,
       ),
       body: Column(
@@ -155,19 +155,19 @@ class _TransferPageState extends State<TransferPage> {
           ),
           Row(
             children: [
-              ReusableCard(colour: moneyTo == MoneyTo.myAcc? kUncardColours : kCardColours, cardChild: Text('Send to my Acc'), gesture: (){
+              ReusableCard(colour: moneyTo == MoneyTo.myAcc? kUncardColours : kCardColours, cardChild: const Text('Send to my Acc'), gesture: (){
                 setState(() {
                   moneyTo = MoneyTo.myAcc;
                 });
               }),
-              ReusableCard(colour: moneyTo == MoneyTo.otherAcc? kUncardColours : kCardColours, cardChild: Text('Send to Other Acc'), gesture: (){
+              ReusableCard(colour: moneyTo == MoneyTo.otherAcc? kUncardColours : kCardColours, cardChild: const Text('Send to Other Acc'), gesture: (){
                 setState(() {
                   moneyTo = MoneyTo.otherAcc;
                 });
               })
             ],
           ),
-          SizedBox(height: 5,),
+          const SizedBox(height: 5,),
           transferBody(),
           moneyTo == MoneyTo.otherAcc? Align(child: RoundedButton(color: Colors.black, text: 'Send money', onPressed: (){})) : Container()
         ],
